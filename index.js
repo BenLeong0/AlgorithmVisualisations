@@ -80,6 +80,24 @@ function resizeBars() {
   }
 }
 
+function noOverride() {
+  const bars = document.getElementsByClassName("bar");
+  for (i=0; i<bars.length; i++) {
+    if (bars[i].classList.contains("green") || bars[i].classList.contains("red")) {
+      return false
+    }
+  }
+  return true
+}
+
+function genRandomBars(n) {
+  values = []
+  for (i=0; i<n; i++) {
+    values.push(Math.floor(Math.random() * n))
+  }
+  initBars(values)
+}
+
 resizeBars()
 // console.log('ready....')
 // setTimeout(function(){console.log('go!')}, 1000);

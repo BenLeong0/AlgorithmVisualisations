@@ -1,3 +1,5 @@
+var outerLoopDone = false
+
 function pick_pivot(l, r) {
   //return l;
   // return r - 2;
@@ -5,13 +7,12 @@ function pick_pivot(l, r) {
   // return Math.floor(Math.random() * (r-l) + l);
 }
 
-var outerLoopDone = false
-
 function quicksort(l,r) {
   outerLoopDone = false
   var bars = document.getElementsByClassName("bar");
   if (l>=r) {
     bars[l].classList.add('done')
+    bars[l].classList.remove('green')
     outerLoopDone = true
   } else {
     pos = pick_pivot(l,r)
@@ -48,6 +49,7 @@ function quicksort(l,r) {
     var checkInner = function(){
       if (loopDone) {
         bars[pos].classList.add('done')
+        bars[pos].classList.remove('green')
         quicksort(l, pos-1);
 
         // Wait until left hand side is done before doing rhs
@@ -74,8 +76,13 @@ function quicksort(l,r) {
 
 
 function runQuicksort() {
-  quicksort(0, document.getElementsByClassName("bar").length-1)
+  if (noOverride()) {
+    genRandomBars(40);
+    quicksort(0, document.getElementsByClassName("bar").length-1);
+  }
 }
+
+
 
 // initBars([3,7,4,4,7,5,2,6,7,1,3,5,9,4,6,2,2,5,9,7,3,0,3])
 // initBars([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
