@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel="stylesheet" href="mystyle.css">
     <meta charset="utf-8">
-    <title></title>
+    <title>Sorting Algorithms</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="icon" href="favicon.png">
   </head>
   <body>
     <p id='options'>
       <span onclick="noOverride(runQuicksort())">QuickSort</span> |
       <span onclick='console.log("do mergesort!")'>MergeSort</span>
     <p>
+    <div id="slider">
+      <input type="range" min="1" max="100" value="30" class="slider" id="barRange">
+      <div style="text-align: center">Value: <span id="barOutput"></span></div>
+    </div>
     <div id="container">
     </div>
     <script src="index.js"></script>

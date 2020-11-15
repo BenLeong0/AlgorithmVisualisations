@@ -103,3 +103,13 @@ function genRandomBars(n) {
 resizeBars()
 // console.log('ready....')
 // setTimeout(function(){console.log('go!')}, 1000);
+
+var slider = document.getElementById("barRange");
+var output = document.getElementById("barOutput");
+output.innerHTML = slider.value;
+barNumber = slider.value
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+  barNumber = this.value
+}

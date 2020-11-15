@@ -77,7 +77,7 @@ function quicksort(l,r) {
 
 function runQuicksort() {
   if (noOverride()) {
-    genRandomBars(40);
+    genRandomBars(barNumber);
     quicksort(0, document.getElementsByClassName("bar").length-1);
   }
 }
