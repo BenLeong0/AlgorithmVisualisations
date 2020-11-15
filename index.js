@@ -1,7 +1,9 @@
 var i;
 
 function addBar(val) {
-  newBar = "<div class='bar' value='" + val + "'></div>";
+  newBar = "<div class='bar' value='" + val +
+            "'><div class='label'>"+val+"</div></div>";
+  // newBar = "<div class='bar' value='" + val + "'></div>";
   document.getElementById('container').innerHTML += newBar
   resizeBars()
 }
@@ -53,7 +55,7 @@ function getValue(i) {
 
 function resizeBars() {
   var bars = document.getElementsByClassName("bar")
-  var boxHeight = document.getElementById("container").style.height
+  var labels = document.getElementsByClassName("label")
   var values = []
 
   /* Assign bar widths, and retrieve values */
@@ -69,7 +71,7 @@ function resizeBars() {
   maxValue = Math.max(...values)
   var i = 0
   for (i=0; i<bars.length; i++) {
-    bars[i].style.height = 100 * getValue(i) / maxValue + '%'
+    bars[i].style.paddingTop = 50 * getValue(i) / maxValue + '%'
   }
 
   /* Remove all whitespace */
@@ -93,7 +95,7 @@ function noOverride() {
 function genRandomBars(n) {
   values = []
   for (i=0; i<n; i++) {
-    values.push(Math.floor(Math.random() * n))
+    values.push(Math.ceil(Math.random() * n))
   }
   initBars(values)
 }

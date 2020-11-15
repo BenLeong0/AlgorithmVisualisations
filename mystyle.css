@@ -3,7 +3,7 @@ body {
   color: white;
 }
 
-p {
+#options {
   text-align: center;
   font-size: 50px;
 }
@@ -20,11 +20,16 @@ p {
 
 .bar{
   display: inline-block;
-  width: 10%;
-  height: 50%;
-  margin-left: 1%;
-  margin-right: 1%;
   background-color: white;
+  height: 0;
+}
+
+.label{
+  position: relative;
+  color: #505050;
+  text-align: center;
+  top: 2px;
+  font-family: monospace;
 }
 
 .red {

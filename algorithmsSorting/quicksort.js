@@ -81,9 +81,3 @@ function runQuicksort() {
     quicksort(0, document.getElementsByClassName("bar").length-1);
   }
 }
-
-
-
-// initBars([3,7,4,4,7,5,2,6,7,1,3,5,9,4,6,2,2,5,9,7,3,0,3])
-// initBars([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
-// runQuicksort()
