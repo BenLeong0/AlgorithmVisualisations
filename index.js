@@ -61,9 +61,11 @@ function resizeBars() {
   /* Assign bar widths, and retrieve values */
   var i = 0
   for (i=0; i<bars.length; i++) {
-    bars[i].style.width = 90/bars.length + '%'
-    bars[i].style.marginLeft = 5/bars.length + '%'
-    bars[i].style.marginRight = 5/bars.length + '%'
+    // Not percentages so that it's consistent through bars
+    bars[i].style.width = Math.floor(900/bars.length) + 'px'
+    bars[i].style.marginLeft = Math.floor(50/bars.length) + 'px'
+    // At least 1px, but can't use Math.ceil else sometimes too wide
+    bars[i].style.marginRight = Math.max(1, Math.floor(50/bars.length)) + 'px'
     values.push(getValue(i))
   }
 
