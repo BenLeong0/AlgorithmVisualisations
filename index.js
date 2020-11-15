@@ -31,18 +31,24 @@ function swapBars(m,n) {
 
 function initBars(array) {
   document.getElementById("container").innerHTML = ''
-  console.log(array)
   var i = 0
   for (i=0; i<array.length; i++) {
     addBar(array[i])
-    console.log(i, array[i])
   }
   resizeBars()
 }
 
-function toggleHighlight(n) {
-  var bars = document.getElementsByClassName("bar");
-  bars[n].classList.toggle("highlighted");
+function toggleGreen(n) {
+  document.getElementsByClassName("bar")[n].classList.toggle("green");
+}
+
+function toggleRed(n) {
+  document.getElementsByClassName("bar")[n].classList.toggle("red");
+}
+
+function getValue(i) {
+  var bars = document.getElementsByClassName("bar")
+  return Number(bars[i].getAttribute('value'))
 }
 
 function resizeBars() {
@@ -56,15 +62,14 @@ function resizeBars() {
     bars[i].style.width = 90/bars.length + '%'
     bars[i].style.marginLeft = 5/bars.length + '%'
     bars[i].style.marginRight = 5/bars.length + '%'
-    values.push(bars[i].getAttribute('value'))
+    values.push(getValue(i))
   }
 
   /* Assign bar heights */
   maxValue = Math.max(...values)
   var i = 0
   for (i=0; i<bars.length; i++) {
-    var barValue = bars[i].getAttribute('value')
-    bars[i].style.height = 100 * barValue / maxValue + '%'
+    bars[i].style.height = 100 * getValue(i) / maxValue + '%'
   }
 
   /* Remove all whitespace */
@@ -76,5 +81,5 @@ function resizeBars() {
 }
 
 resizeBars()
-console.log('ready....')
-setTimeout(function(){console.log('go!')}, 1000);
+// console.log('ready....')
+// setTimeout(function(){console.log('go!')}, 1000);
