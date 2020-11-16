@@ -49,6 +49,10 @@ function toggleRed(n) {
   document.getElementsByClassName("bar")[n].classList.toggle("red");
 }
 
+function toggleDone(n) {
+  document.getElementsByClassName("bar")[n].classList.toggle("done");
+}
+
 function getValue(i) {
   var bars = document.getElementsByClassName("bar")
   return Number(bars[i].getAttribute('value'))
@@ -124,6 +128,16 @@ function genRandomBars(n) {
   }
   initBars(values)
 }
+
+function reset() {
+  var id = window.setTimeout(function() {}, 0);
+  console.log(id);
+  while (id--) {
+      window.clearTimeout(id); // will do nothing if no timeout with id is present
+  }
+}
+
+
 
 resizeBars()
 // console.log('ready....')

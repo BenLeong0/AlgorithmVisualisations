@@ -13,47 +13,47 @@ function genBubbleQueue(n) {
 
 
 function runBubblesort(){
-  if (noOverride()) {
-    var bubbleLength = barNumber
-    var box = document.getElementById("container");
-    var bars = document.getElementsByClassName("bar");
-    genRandomBars(bubbleLength);
-    genBubbleQueue(bubbleLength);
+  // if (noOverride()) {
+  var bubbleLength = barNumber
+  var box = document.getElementById("container");
+  var bars = document.getElementsByClassName("bar");
+  genRandomBars(bubbleLength);
+  genBubbleQueue(bubbleLength);
 
-    function bubbleSort(i) {
-      setTimeout(function() {
+  function bubbleSort(i) {
+    setTimeout(function() {
 
-        currentBubble = bubbleQueue.shift()
-        if (Number(currentBubble)>0){
-          bars[Number(currentBubble)].classList.remove('green')
-          bars[Number(currentBubble)].classList.remove('red')
-          bars[Number(currentBubble)-1].classList.remove('green')
-          bars[Number(currentBubble)-1].classList.remove('red')
-        }
+      currentBubble = bubbleQueue.shift()
+      if (Number(currentBubble)>0){
+        bars[Number(currentBubble)].classList.remove('green')
+        bars[Number(currentBubble)].classList.remove('red')
+        bars[Number(currentBubble)-1].classList.remove('green')
+        bars[Number(currentBubble)-1].classList.remove('red')
+      }
 
-        if (typeof(currentBubble) == "number") {
-          // compare, swap
-          if (getValue(currentBubble) > getValue(currentBubble+1)) {
-            // swap
-            bars[currentBubble].classList.add('green')
-            bars[currentBubble+1].classList.add('red')
-            swapBars(currentBubble, currentBubble+1)
-          } else {
-            // don't swap
-            bars[currentBubble].classList.add('red')
-            bars[currentBubble+1].classList.add('green')
-          }
-
+      if (typeof(currentBubble) == "number") {
+        // compare, swap
+        if (getValue(currentBubble) > getValue(currentBubble+1)) {
+          // swap
+          bars[currentBubble].classList.add('green')
+          bars[currentBubble+1].classList.add('red')
+          swapBars(currentBubble, currentBubble+1)
         } else {
-          // mark done
-          bars[Number(currentBubble)].classList.add('done')
+          // don't swap
+          bars[currentBubble].classList.add('red')
+          bars[currentBubble+1].classList.add('green')
         }
 
-        if (--i) {bubbleSort(i)};
+      } else {
+        // mark done
+        bars[Number(currentBubble)].classList.add('done')
+      }
 
-      }, delay)
-    }
+      if (--i) {bubbleSort(i)};
 
-    bubbleSort(bubbleQueue.length)
+    }, delay)
   }
+
+  bubbleSort(bubbleQueue.length)
+  // }
 }

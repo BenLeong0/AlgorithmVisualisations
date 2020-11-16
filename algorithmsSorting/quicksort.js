@@ -1,5 +1,3 @@
-var outerLoopDone = false
-
 function pick_pivot(l, r) {
   //return l;
   // return r - 2;
@@ -78,8 +76,9 @@ function quicksort(l,r,length) {
 
 
 function runQuicksort() {
-  if (noOverride()) {
-    genRandomBars(barNumber);
-    quicksort(0, document.getElementsByClassName("bar").length-1, barNumber);
-  }
+  // if (noOverride()) {
+  outerLoopDone = false
+  genRandomBars(barNumber);
+  quicksort(0, document.getElementsByClassName("bar").length-1, barNumber);
+  // }
 }

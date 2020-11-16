@@ -1,6 +1,3 @@
-var mergeCheck = true
-var mergeStack = []
-
 function merge([l1,mid,r2]) {
   mergeCheck = false
   var box = document.getElementById("container");
@@ -51,33 +48,36 @@ function genMergeStack(l,r) { // r not included, so start as length
 
 
 function runMergesort() {
-  if (noOverride()) {
-    var mergeLength = barNumber
-    genRandomBars(mergeLength);
-    genMergeStack(0, mergeLength);
-    function mergesort() {
-      if (mergeStack.length > 0) {
-        // merge top of stack after delay
-        var check = function(){
-          if (mergeCheck) {
-            merge(mergeStack[mergeStack.length - 1])  // merge top of stack
-            mergesort()                               // run again
-          } else {
-            setTimeout(check, delay)
-          }
+  // if (noOverride()) {
+  var mergeLength = barNumber
+  mergeCheck = true
+  mergeStack = []
+  genRandomBars(mergeLength);
+  genMergeStack(0, mergeLength);
+  function mergesort() {
+    if (mergeStack.length > 0) {
+      // merge top of stack after delay
+      var check = function(){
+        if (mergeCheck) {
+          merge(mergeStack[mergeStack.length - 1])  // merge top of stack
+          mergesort()                               // run again
+        } else {
+          setTimeout(check, delay)
         }
-        check()
       }
-      else {
-        (function myLoop(i) {
-          setTimeout(function() {
-            currentBar = document.getElementsByClassName("bar")[mergeLength - i]
-            currentBar.classList.add('done')
-            if (--i) {myLoop(i)};
-          }, delay)
-        })(mergeLength);
-      }
+      check()
     }
-    mergesort()
+    else {
+      function setAllDone(i) {
+        setTimeout(function() {
+          currentBar = document.getElementsByClassName("bar")[mergeLength - i]
+          currentBar.classList.add('done')
+          if (--i) {setAllDone(i)};
+        }, delay)
+      }
+      setAllDone(mergeLength);
+    }
   }
+  mergesort()
+  // }
 }
