@@ -1,4 +1,5 @@
 var i;
+var delay = 10
 
 function addBar(val) {
   newBar = "<div class='bar' value='" + val +
@@ -66,6 +67,10 @@ function resizeBars() {
     bars[i].style.marginLeft = Math.floor(50/bars.length) + 'px'
     // At least 1px, but can't use Math.ceil else sometimes too wide
     bars[i].style.marginRight = Math.max(1, Math.floor(50/bars.length)) + 'px'
+    if (bars.length>60) {
+      labels[i].style.fontSize = Math.floor(900/bars.length) + 'px'
+      labels[i].style.writingMode = "vertical-rl"
+    }
     values.push(getValue(i))
   }
 

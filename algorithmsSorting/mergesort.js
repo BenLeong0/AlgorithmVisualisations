@@ -1,9 +1,7 @@
 var mergeCheck = true
 var mergeStack = []
-var delay = 10
 
 function merge([l1,mid,r2]) {
-  console.log('merge', [l1,mid,r2])
   mergeCheck = false
   var box = document.getElementById("container");
   var bars = document.getElementsByClassName("bar");
@@ -43,7 +41,6 @@ function merge([l1,mid,r2]) {
 
 
 function genMergeStack(l,r) { // r not included, so start as length
-  console.log(l,r,mergeStack)
   stackComplete = false
   if (r-l>1) {
     mergeStack.push([l, Math.ceil((l+r)/2), r])
@@ -57,17 +54,14 @@ function runMergesort() {
   if (noOverride()) {
     var mergeLength = barNumber
     genRandomBars(mergeLength);
-    console.log('YO')
     genMergeStack(0, mergeLength);
-    console.log(mergeStack)
     function mergesort() {
       if (mergeStack.length > 0) {
         // merge top of stack after delay
         var check = function(){
-          console.log('check')
           if (mergeCheck) {
-            merge(mergeStack[mergeStack.length - 1])
-            mergesort()
+            merge(mergeStack[mergeStack.length - 1])  // merge top of stack
+            mergesort()                               // run again
           } else {
             setTimeout(check, delay)
           }

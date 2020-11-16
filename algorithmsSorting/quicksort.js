@@ -11,8 +11,10 @@ function quicksort(l,r,length) {
   outerLoopDone = false
   var bars = document.getElementsByClassName("bar");
   if (l>=r) {
-    bars[l].classList.add('done')
-    bars[l].classList.remove('green')
+    if (l < bars.length) {
+      bars[l].classList.add('done')
+      bars[l].classList.remove('green')
+    }
     outerLoopDone = true
   } else {
     pos = pick_pivot(l,r)
