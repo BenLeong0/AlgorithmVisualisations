@@ -1,5 +1,4 @@
 function runCountingsort(){
-  // if (noOverride()) {
   var countingLength = barNumber
   var box = document.getElementById("container");
   var bars = document.getElementsByClassName("bar");
@@ -30,5 +29,4 @@ function runCountingsort(){
     }, delay)
   }
   countingSort(countingLength)
-  // }
 }

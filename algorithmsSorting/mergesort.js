@@ -48,7 +48,6 @@ function genMergeStack(l,r) { // r not included, so start as length
 
 
 function runMergesort() {
-  // if (noOverride()) {
   var mergeLength = barNumber
   mergeCheck = true
   mergeStack = []
@@ -79,5 +78,4 @@ function runMergesort() {
     }
   }
   mergesort()
-  // }
 }

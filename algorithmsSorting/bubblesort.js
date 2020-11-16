@@ -13,7 +13,6 @@ function genBubbleQueue(n) {
 
 
 function runBubblesort(){
-  // if (noOverride()) {
   var bubbleLength = barNumber
   var box = document.getElementById("container");
   var bars = document.getElementsByClassName("bar");
@@ -55,5 +54,4 @@ function runBubblesort(){
   }
 
   bubbleSort(bubbleQueue.length)
-  // }
 }

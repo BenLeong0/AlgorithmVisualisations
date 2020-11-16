@@ -93,26 +93,6 @@ function resizeBars() {
   }
 }
 
-function noOverride() {
-  const bars = document.getElementsByClassName("bar");
-  var allDone = true;
-  var noneDone = false;
-  for (i=0; i<bars.length; i++) {
-    if (bars[i].classList.contains("green") || bars[i].classList.contains("red")) {
-      return false
-    }
-    if (bars[i].classList.contains("done")) {
-      noneDone = true;
-    } else {
-      allDone = false;
-    }
-  }
-  if (noneDone && !allDone) {
-    return false
-  }
-  return true
-}
-
 function getValues(){
   values = []
   for (i=0; i<barNumber; i++) {

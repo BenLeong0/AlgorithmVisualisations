@@ -76,9 +76,7 @@ function quicksort(l,r,length) {
 
 
 function runQuicksort() {
-  // if (noOverride()) {
   outerLoopDone = false
   genRandomBars(barNumber);
   quicksort(0, document.getElementsByClassName("bar").length-1, barNumber);
-  // }
 }
