@@ -8,16 +8,17 @@
   </head>
   <body>
     <p id='options'>
-      <span onclick="noOverride(runQuicksort())">QuickSort</span> |
-      <span onclick='console.log("do mergesort!")'>MergeSort</span>
+      <span onclick="runQuicksort()">QuickSort</span> |
+      <span onclick='runMergesort()'>MergeSort</span>
     <p>
     <div id="slider">
-      <input type="range" min="2" max="100" value="30" class="slider" id="barRange">
+      <input type="range" min="2" max="100" value="7" class="slider" id="barRange">
       <div style="text-align: center">Value: <span id="barOutput"></span></div>
     </div>
     <div id="container">
     </div>
     <script src="index.js"></script>
     <script src="algorithmsSorting/quicksort.js"></script>
+    <script src="algorithmsSorting/mergesort.js"></script>
   </body>
 </html>

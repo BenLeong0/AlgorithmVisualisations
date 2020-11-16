@@ -86,12 +86,30 @@ function resizeBars() {
 
 function noOverride() {
   const bars = document.getElementsByClassName("bar");
+  var allDone = true;
+  var noneDone = false;
   for (i=0; i<bars.length; i++) {
     if (bars[i].classList.contains("green") || bars[i].classList.contains("red")) {
       return false
     }
+    if (bars[i].classList.contains("done")) {
+      noneDone = true;
+    } else {
+      allDone = false;
+    }
+  }
+  if (noneDone && !allDone) {
+    return false
   }
   return true
+}
+
+function getValues(){
+  values = []
+  for (i=0; i<barNumber; i++) {
+    values.push(getValue(i))
+  }
+  return values
 }
 
 function genRandomBars(n) {
@@ -109,9 +127,9 @@ resizeBars()
 var slider = document.getElementById("barRange");
 var output = document.getElementById("barOutput");
 output.innerHTML = slider.value;
-barNumber = slider.value
+barNumber = Number(slider.value)
 
 slider.oninput = function() {
   output.innerHTML = this.value;
-  barNumber = this.value
+  barNumber = Number(this.value)
 }
