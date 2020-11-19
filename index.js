@@ -1,5 +1,5 @@
 var i;
-var delay = 10
+var delay = 10;
 
 function addBar(val) {
   newBar = "<div class='bar' value='" + val +
@@ -19,8 +19,7 @@ function swapBars(m,n) {
   var bars = document.getElementsByClassName("bar")
   if (m >= bars.length || n >= bars.length) {
     return console.log('uh oh, bar id is out of range!')
-  } else if (m == n) {
-    return console.log('same bar dummy!')
+  } else if (m == n) {return console.log('same bar dummy!')
   } else {
     // Swap the bars!!
     var box = document.getElementById("container")
