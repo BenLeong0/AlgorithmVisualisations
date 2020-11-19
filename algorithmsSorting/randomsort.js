@@ -6,7 +6,6 @@ function runRandomsort() {
 
   var sorted = []
   for (i=0;i<randomLength;i++) {
-    console.log(sorted);
     sorted.push(getValue(i))
   }
   sorted.sort()
