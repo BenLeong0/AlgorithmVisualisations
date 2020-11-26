@@ -1,0 +1,72 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+#options {
+  text-align: center;
+  font-size: 50px;
+  margin-block-end: 0.5em;
+  margin-block-start: 0.5em;
+}
+
+#container {
+  width: 1000px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  text-align: center;
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color: black;
+}
+
+#home {
+  display: block;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+}
+
+.bar{
+  display: inline-block;
+  background-color: white;
+  height: 0;
+}
+
+.label{
+  position: relative;
+  color: #505050;
+  text-align: center;
+  top: 2px;
+  font-family: monospace;
+}
+
+#slider{
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#barRange {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: lime;
+}
+
+.done {
+  background-color: cyan;
+}
