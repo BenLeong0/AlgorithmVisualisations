@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sorting Algorithms</title>
+    <link rel="stylesheet" href="sudoku.css">
+    <link rel="icon" href="favicon.png">
+  </head>
+  <body>
+    <div id="bg-container">
+      <div id="background">数独</div>
+
+      <p><a id="home" href="../index.html">
+        RETURN TO HOME
+      </a></p>
+      <p id='options'>
+        <span onclick="reset();">Random sudoku</span> |
+        <span onclick="reset();">Empty sudoku</span>
+      </p>
+
+      <div class="grid-container">
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">9</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">9</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">9</div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item left-item"></div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item left-item"></div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item">9</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">9</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">9</div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item left-item"></div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item left-item"></div>
+        <div class="grid-item top-item"></div>
+        <div class="grid-item top-item">9</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">9</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item left-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+      </div>
+
+      <p id="solveButtons">
+        <span onclick="reset(); initInstantSolve();">Instant solve</span> |
+        <span onclick="reset(); initSolve();">Solve with process</span> |
+        <span onclick="reset();">Reset</span>
+      </p>
+
+      <script src="sudoku.js"></script>
+      <script src="sudokuInstant.js"></script>
+
+    </div>
+  </body>
+</html>
