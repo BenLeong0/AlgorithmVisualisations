@@ -82,7 +82,7 @@ body {
    right: 0;
    z-index: -1;
    color: white;
-   font-size: 30vw;
+   font-size: 544px;
    color: white;
    opacity: 0.2;
 
@@ -92,4 +92,11 @@ body {
    -moz-user-select: none;
    -ms-user-select: none;
    user-select: none;
+}
+
+
+@media only screen and (max-width: 1400px) {
+  #background {
+    font-size: 30vw;
+  }
 }
