@@ -62,38 +62,39 @@ function solve(n) {
   } else {
 
     setTimeout(function() {
-    if (boxes[n].innerHTML == '') {
-      boxes[n].innerHTML = 1;
+
+      if (boxes[n].innerHTML == '') {
+        boxes[n].innerHTML = 1;
+          if (checkValues(n)) {
+            solve(n+1);
+          } else {
+            solve(n);
+          }
+
+      } else if (boxes[n].innerHTML == 9){
+        boxes[n].innerHTML = "";
+        n--;
+        while (boxes[n].classList.contains("set")) {
+          n--;
+        }
+        solve(n);
+
+      } else {
+        boxes[n].innerHTML = parseInt(boxes[n].innerHTML) + 1;
+
         if (checkValues(n)) {
-          solve(n+1);
+          if (n==80) {
+            console.log("DONE");
+          } else {
+            solve(n+1);
+          }
         } else {
           solve(n);
         }
-
-    } else if (boxes[n].innerHTML == 9){
-      boxes[n].innerHTML = "";
-      n--;
-      while (boxes[n].classList.contains("set")) {
-        n--;
       }
-      solve(n);
-
-    } else {
-      boxes[n].innerHTML = parseInt(boxes[n].innerHTML) + 1;
-
-      if (checkValues(n)) {
-        if (n==80) {
-          console.log("DONE");
-        } else {
-          solve(n+1);
-        }
-      } else {
-        solve(n);
-      }
-    }
-
-
-  },delay)}
+      
+    },delay)
+  }
 }
 
 function checkValues(n) {
