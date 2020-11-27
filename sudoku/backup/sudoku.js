@@ -47,18 +47,28 @@ exampleUnformatted = [
 //   [0,0,0,5,0,9,0,0,0]
 // ]
 
+function formatGrid(grid) {
+  var formatted = [];
+  for (i=0;i<9;i++) {
+    currentBox = [];
+    for (j=0;j<9;j++) {
+      var x = Math.floor(i/3) + Math.floor(j/3);
+      var y = 3*(i%3) + j%3;
+      formatted.push(grid[x][y])
+    }
+    // formatted.push(currentBox);
+  }
+  return formatted
+}
+
 function assignValues(grid) {
   // var values = formatGrid(grid);
   for (i=0;i<81;i++) {
-    boxes[i].classList.remove("incorrect")
     var value = grid[Math.floor(i/9)][i%9];
     if (value == 0) {
-      boxes[i].childNodes[0].value = '';
-      boxes[i].childNodes[0].readOnly = false;
-      boxes[i].classList.remove("set")
+      boxes[i].innerHTML = '';
     } else {
-      boxes[i].childNodes[0].value = value;
-      boxes[i].childNodes[0].readOnly = true;
+      boxes[i].innerHTML = value;
       boxes[i].classList.add("set")
     }
   }
@@ -68,7 +78,6 @@ function assignValues(grid) {
 
 
 function initSolve() {
-  for (i=0;i<81;i++) {boxes[i].childNodes[0].readOnly = true};
   solve(0);
 }
 
@@ -83,16 +92,16 @@ function solve(n) {
   } else {
     setTimeout(function() {
 
-      if (boxes[n].childNodes[0].value == '') {
-        boxes[n].childNodes[0].value = 1;
+      if (boxes[n].innerHTML == '') {
+        boxes[n].innerHTML = 1;
           if (checkValues(n)) {
             solve(n+1);
           } else {
             solve(n);
           }
 
-      } else if (boxes[n].childNodes[0].value == 9){
-        boxes[n].childNodes[0].value = "";
+      } else if (boxes[n].innerHTML == 9){
+        boxes[n].innerHTML = "";
         n--;
         while (boxes[n].classList.contains("set")) {
           if (n==0) {return alert("This sudoku is unsolvable");}
@@ -101,7 +110,7 @@ function solve(n) {
         solve(n);
 
       } else {
-        boxes[n].childNodes[0].value = parseInt(boxes[n].childNodes[0].value) + 1;
+        boxes[n].innerHTML = parseInt(boxes[n].innerHTML) + 1;
         if (checkValues(n)) {
           if (n==80) {
             console.log("DONE");
@@ -118,8 +127,8 @@ function solve(n) {
 }
 
 function checkValues(n) {
-  if (boxes[n].childNodes[0].value==0) {
-    return false
+  if (boxes[n].innerHTML==0) {
+    return
   }
 
   var idInSquare = n%3 + 9*Math.floor(n%27/9);
@@ -127,7 +136,7 @@ function checkValues(n) {
   for (i=0;i<9;i++) {
     if (idInSquare != squareIds[i]) {
       var comparedId = n - idInSquare + squareIds[i]
-      if (boxes[comparedId].childNodes[0].value == boxes[n].childNodes[0].value) {
+      if (boxes[comparedId].innerHTML == boxes[n].innerHTML) {
         return false
       }
     }
@@ -135,7 +144,7 @@ function checkValues(n) {
 
   for (i=9*Math.floor(n/9); i<9*(Math.floor(n/9)+1); i++) {
     if (i != n) {
-      if (boxes[i].childNodes[0].value == boxes[n].childNodes[0].value) {
+      if (boxes[i].innerHTML == boxes[n].innerHTML) {
         return false
       }
     }
@@ -144,7 +153,7 @@ function checkValues(n) {
   for (i=0;i<9;i++) {
     var comparedId = 9*i + n%9;
     if (comparedId != n) {
-      if (boxes[comparedId].childNodes[0].value == boxes[n].childNodes[0].value) {
+      if (boxes[comparedId].innerHTML == boxes[n].innerHTML) {
         return false
       }
     }
@@ -163,34 +172,5 @@ function reset() {
   assignValues(currentGrid)
 }
 
-function checkAnswer() {
-  var success = true;
-  var n;
-  for (n=0;n<81;n++) {
-    boxes[n].classList.remove("incorrect");
-    if (!checkValues(n) && !boxes[n].classList.contains("set")) {
-      boxes[n].classList.add("incorrect");
-      success = false;
-    }
-  }
-  if (success) {alert("Seems good!")}
-  else {alert("Errors!")}
-}
 
-
-function emptyBoard() {
-  assignValues([
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-  ])
-}
-
-
-assignValues(exampleUnformatted)
+// assignValues(exampleUnformatted)

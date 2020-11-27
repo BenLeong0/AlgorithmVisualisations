@@ -15,7 +15,7 @@
       </a></p>
       <p id='options'>
         <span onclick="reset(); importGrid()">Random sudoku</span> |
-        <span onclick="reset(); emptyBoard()">Empty sudoku</span>
+        <span onclick="reset();">Empty sudoku</span>
       </p>
 
       <div class="grid-container">
@@ -188,10 +188,9 @@
       </div> -->
 
       <p id="solveButtons">
-        <span onclick="initInstantSolve();">Instant solve</span> |
+        <span onclick="reset(); initInstantSolve();">Instant solve</span> |
         <span onclick="reset(); initSolve();">Solve with process</span> |
-        <span onclick="reset();">Reset</span><br><br>
-        <span onclick="checkAnswer();">Check answer!</span>
+        <span onclick="reset();">Reset</span>
       </p>
 
       <iframe id="randomPuzzle" src=""></iframe>

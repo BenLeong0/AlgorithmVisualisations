@@ -2,11 +2,10 @@ function initInstantSolve() {
   gridValues = [];
   isSet = [];
   for (i=0;i<81;i++) {
-    boxes[i].childNodes[0].readOnly = true;
-    if (boxes[i].childNodes[0].value == '') {
+    if (boxes[i].innerHTML == '') {
       gridValues.push(0)
     } else {
-      gridValues.push(parseInt(boxes[i].childNodes[0].value));
+      gridValues.push(parseInt(boxes[i].innerHTML));
     }
     if (boxes[i].classList.contains("set")) {
       isSet.push(true);
@@ -18,7 +17,7 @@ function initInstantSolve() {
 
   if (solvable) {
     for (i=0;i<81;i++) {
-      boxes[i].childNodes[0].value = gridValues[i];
+      boxes[i].innerHTML = gridValues[i];
     }
   }
 
