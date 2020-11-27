@@ -13,9 +13,7 @@ function initInstantSolve() {
       isSet.push(false);
     }
   }
-  console.log(gridValues);
   instantSolve(0);
-  console.log(gridValues);
 
   for (i=0;i<81;i++) {
     boxes[i].innerHTML = gridValues[i];
