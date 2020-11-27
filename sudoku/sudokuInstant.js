@@ -1,6 +1,6 @@
 function initInstantSolve() {
-  var gridValues = [];
-  var isSet = [];
+  gridValues = [];
+  isSet = [];
   for (i=0;i<81;i++) {
     gridValues.push(boxes[i].innerHTML);
     if (boxes[i].classList.contains("set")) {
@@ -9,7 +9,8 @@ function initInstantSolve() {
       isSet.push(false);
     }
   }
-  instantSolve(gridValues, isSet, 0);
+  console.log(isSet);;
+  instantSolve(0);
 
   for (i=0;i<81;i++) {
     boxes[i].innerHTML = newGrid[i];
@@ -18,45 +19,45 @@ function initInstantSolve() {
 }
 
 
-function instantSolve(values, setValues, n) {
-  if (setValues[n]) {;
-    instantSolve(values, setValues, n+1);
+function instantSolve(n) {
+  if (isSet[n]) {;
+    instantSolve(n+1);
   } else {
-    if (values[n] == '') {
-      values[n] = 1;
-      if (instantCheckValues(values, n)) {     // !!!!!!
-        instantSolve(values, setValues, n+1);
+    if (gridValues[n] == '') {
+      gridValues[n] = 1;
+      if (instantCheckValues(n)) {     // !!!!!!
+        instantSolve(n+1);
       } else {
-        instantSolve(values, setValues, n);
+        instantSolve(n);
       }
 
-    } else if (values[n] == 9){
-      values[n] = "";
+    } else if (gridValues[n] == 9){
+      gridValues[n] = "";
       n--;
-      while (setValues[n]) {
+      while (isSet[n]) {
         n--;
       }
-      instantSolve(values, setValues, n);
+      instantSolve(n);
 
     } else {
-      values[n] = parseInt(values[n]) + 1;
+      gridValues[n] = parseInt(gridValues[n]) + 1;
 
-      if (instantCheckValues(values, n)) {
+      if (instantCheckValues(n)) {
         if (n==80) {
-          newGrid = values;
+          newGrid = gridValues;
         } else {
-          instantSolve(values, setValues, n+1);
+          instantSolve(n+1);
         }
       } else {
-        instantSolve(values, setValues, n);
+        instantSolve(n);
       }
     }
   }
 }
 
 
-function instantCheckValues(values, n) {
-  if (values[n]==0) {
+function instantCheckValues(n) {
+  if (gridValues[n]==0) {
     return
   }
 
@@ -65,7 +66,7 @@ function instantCheckValues(values, n) {
   for (i=0;i<9;i++) {
     if (idInSquare != squareIds[i]) {
       var comparedId = n - idInSquare + squareIds[i]
-      if (values[comparedId] == values[n]) {
+      if (gridValues[comparedId] == gridValues[n]) {
         return false
       }
     }
@@ -73,7 +74,7 @@ function instantCheckValues(values, n) {
 
   for (i=9*Math.floor(n/9); i<9*(Math.floor(n/9)+1); i++) {
     if (i != n) {
-      if (values[i] == values[n]) {
+      if (gridValues[i] == gridValues[n]) {
         return false
       }
     }
@@ -82,7 +83,7 @@ function instantCheckValues(values, n) {
   for (i=0;i<9;i++) {
     var comparedId = 9*i + n%9;
     if (comparedId != n) {
-      if (values[comparedId] == values[n]) {
+      if (gridValues[comparedId] == gridValues[n]) {
         return false
       }
     }
