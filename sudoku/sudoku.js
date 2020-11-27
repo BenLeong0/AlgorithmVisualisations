@@ -60,16 +60,15 @@ function solve(n) {
   if (boxes[n].classList.contains("set")) {
     solve(n+1)
   } else {
+
+    setTimeout(function() {
     if (boxes[n].innerHTML == '') {
       boxes[n].innerHTML = 1;
-
-      setTimeout(function() {
         if (checkValues(n)) {
           solve(n+1);
         } else {
           solve(n);
         }
-      },delay)
 
     } else if (boxes[n].innerHTML == 9){
       boxes[n].innerHTML = "";
@@ -77,28 +76,24 @@ function solve(n) {
       while (boxes[n].classList.contains("set")) {
         n--;
       }
-      setTimeout(function() {
-        solve(n);
-      },delay)
+      solve(n);
 
     } else {
       boxes[n].innerHTML = parseInt(boxes[n].innerHTML) + 1;
 
-      setTimeout(function() {
-        if (checkValues(n)) {
-          if (n==80) {
-            console.log("DONE");
-          } else {
-            solve(n+1);
-          }
+      if (checkValues(n)) {
+        if (n==80) {
+          console.log("DONE");
         } else {
-          solve(n);
+          solve(n+1);
         }
-      },delay)
+      } else {
+        solve(n);
+      }
     }
 
 
-  }
+  },delay)}
 }
 
 function checkValues(n) {
