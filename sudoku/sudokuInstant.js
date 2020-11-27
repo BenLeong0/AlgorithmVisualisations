@@ -2,57 +2,46 @@ function initInstantSolve() {
   gridValues = [];
   isSet = [];
   for (i=0;i<81;i++) {
-    gridValues.push(boxes[i].innerHTML);
+    if (boxes[i].innerHTML == '') {
+      gridValues.push(0)
+    } else {
+      gridValues.push(parseInt(boxes[i].innerHTML));
+    }
     if (boxes[i].classList.contains("set")) {
       isSet.push(true);
     } else {
       isSet.push(false);
     }
   }
-  console.log(isSet);;
+  console.log(gridValues);
   instantSolve(0);
+  console.log(gridValues);
 
   for (i=0;i<81;i++) {
-    boxes[i].innerHTML = newGrid[i];
+    boxes[i].innerHTML = gridValues[i];
   }
 
 }
 
 
 function instantSolve(n) {
-  if (isSet[n]) {;
-    instantSolve(n+1);
+  var solved = false;
+  var currentValue = 0;
+  if (isSet[n]) {
+    if (n == 80) return true
+    return instantSolve(n+1)
   } else {
-    if (gridValues[n] == '') {
-      gridValues[n] = 1;
-      if (instantCheckValues(n)) {     // !!!!!!
-        instantSolve(n+1);
-      } else {
-        instantSolve(n);
-      }
-
-    } else if (gridValues[n] == 9){
-      gridValues[n] = "";
-      n--;
-      while (isSet[n]) {
-        n--;
-      }
-      instantSolve(n);
-
-    } else {
-      gridValues[n] = parseInt(gridValues[n]) + 1;
-
+    while (!solved) {
+      if (currentValue==9) {gridValues[n] = 0; return false}
+      currentValue++;
+      gridValues[n]=currentValue;
       if (instantCheckValues(n)) {
-        if (n==80) {
-          newGrid = gridValues;
-        } else {
-          instantSolve(n+1);
-        }
-      } else {
-        instantSolve(n);
+        if (n == 80) return true
+        solved = instantSolve(n+1);
       }
     }
   }
+  return true
 }
 
 

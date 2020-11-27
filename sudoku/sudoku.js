@@ -75,8 +75,8 @@ function solve(n) {
     } else {
       solve(n+1);
     }
-  } else {
 
+  } else {
     setTimeout(function() {
 
       if (boxes[n].innerHTML == '') {
@@ -97,7 +97,6 @@ function solve(n) {
 
       } else {
         boxes[n].innerHTML = parseInt(boxes[n].innerHTML) + 1;
-
         if (checkValues(n)) {
           if (n==80) {
             console.log("DONE");
