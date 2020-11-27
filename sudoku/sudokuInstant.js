@@ -7,11 +7,12 @@ function initInstantSolve() {
       gridValues.push(0)
     } else {
       gridValues.push(parseInt(boxes[i].childNodes[0].value));
+      isSet.push(true)
     }
     if (boxes[i].classList.contains("set")) {
       isSet.push(true);
-    } else {
-      isSet.push(false);
+    // } else {
+    //   isSet.push(false);
     }
   }
   var solvable = instantSolve(0);
