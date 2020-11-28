@@ -1,6 +1,8 @@
 function initSolve() {
   if (!checkWhileSolving()) {return alert("There are inconsistencies!")}
 
+  midSolve = true;
+
   for (i=0;i<81;i++) {
     boxes[i].childNodes[0].readOnly = true;
     boxes[i].classList.remove("userInput");
@@ -18,6 +20,7 @@ function solve(n) {
       for (i=0;i<81;i++) {
         boxes[i].classList.add("complete")
       }
+      midSolve = false;
       console.log("DONE");
     } else {
       solve(n+1);

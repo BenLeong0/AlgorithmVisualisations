@@ -13,6 +13,7 @@
       <p><a id="home" href="../index.html">
         RETURN TO HOME
       </a></p>
+
       <p id='options'>
         <span onclick="reset(); importGrid()">Random sudoku</span> |
         <span onclick="reset(); emptyBoard()">Empty sudoku</span>
@@ -102,93 +103,8 @@
         <div class="grid-item"><input type="text" size="1" value onclick="this.parentElement.classList.remove('incorrect')"></input></div>
       </div>
 
-
-      <!-- <div class="grid-container">
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">9</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">9</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">9</div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item left-item"></div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item left-item"></div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item">9</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">9</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">9</div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item left-item"></div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item left-item"></div>
-        <div class="grid-item top-item"></div>
-        <div class="grid-item top-item">9</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">9</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item left-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-      </div> -->
-
       <p style="margin-bottom: 8px" id="solveButtons">
-        <span onclick="removeTimeouts(); initInstantSolve();">Instant solve</span> |
+        <span onclick="if (!midSolve) {removeTimeouts(); initInstantSolve();}">Instant solve</span> |
         <span onclick="removeTimeouts(); initSolve();">Solve with process</span> |
         <span onclick="reset();">Reset</span><br><br>
         <span onclick="checkAnswer();">Check answer</span>

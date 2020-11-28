@@ -2,6 +2,7 @@ var i, j;
 var boxes = document.getElementsByClassName('grid-item')
 var delay = 0;
 var currentGrid;
+var midSolve = false;
 
 // Set IDs
 // for (i=0;i<boxes.length;i++) {
