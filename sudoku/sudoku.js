@@ -112,6 +112,7 @@ function removeTimeouts() {
 
 function reset() {
   var id = window.setTimeout(function() {}, 0);
+  midSolve = false;
   console.log(id);
   while (id--) {
       window.clearTimeout(id); // will do nothing if no timeout with id is present

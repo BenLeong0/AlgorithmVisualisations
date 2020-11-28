@@ -105,7 +105,7 @@
 
       <p style="margin-bottom: 8px" id="solveButtons">
         <span onclick="if (!midSolve) {removeTimeouts(); initInstantSolve();}">Instant solve</span> |
-        <span onclick="removeTimeouts(); initSolve();">Solve with process</span> |
+        <span onclick="if (!midSolve) {removeTimeouts(); initSolve();}">Solve with process</span> |
         <span onclick="reset();">Reset</span><br><br>
         <span onclick="checkAnswer();">Check answer</span>
         <p style="text-align: center; font-size: 12px; margin: 0">Marks any <u>inconsistencies</u> - unmarked squares could still be wrong!</p>
@@ -116,7 +116,6 @@
       <script src="sudoku.js"></script>
       <script src="sudokuSolve.js"></script>
       <script src="sudokuInstant.js"></script>
-      <script src="sudokuImport.js"></script>
 
     </div>
   </body>

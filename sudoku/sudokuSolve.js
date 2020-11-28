@@ -50,6 +50,10 @@ function solve(n) {
         boxes[n].childNodes[0].value = parseInt(boxes[n].childNodes[0].value) + 1;
         if (checkValues(n)) {
           if (n==80) {
+            for (i=0;i<81;i++) {
+              boxes[i].classList.add("complete")
+            }
+            midSolve = false;
             console.log("DONE");
           } else {
             solve(n+1);
