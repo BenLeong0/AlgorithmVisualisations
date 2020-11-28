@@ -51,6 +51,7 @@ function assignValues(grid) {
   // var values = formatGrid(grid);
   for (i=0;i<81;i++) {
     boxes[i].classList.remove("incorrect")
+    boxes[i].classList.remove("complete")
     var value = grid[Math.floor(i/9)][i%9];
     if (value == 0) {
       boxes[i].childNodes[0].value = '';
@@ -65,59 +66,17 @@ function assignValues(grid) {
   currentGrid = grid;
 }
 
-
-
-function initSolve() {
-  for (i=0;i<81;i++) {boxes[i].childNodes[0].readOnly = true};
-  solve(0);
-}
-
-function solve(n) {
-  if (boxes[n].classList.contains("set")) {
-    if (n==80) {
-      console.log("DONE");
-    } else {
-      solve(n+1);
+function clearReadOnlys() {
+  for (i=0;i<81;i++) {
+    if (!boxes[i].classList.contains("set")) {
+      boxes[i].childNodes[0].readOnly = false;
     }
-
-  } else {
-    setTimeout(function() {
-
-      if (boxes[n].childNodes[0].value == '') {
-        boxes[n].childNodes[0].value = 1;
-          if (checkValues(n)) {
-            solve(n+1);
-          } else {
-            solve(n);
-          }
-
-      } else if (boxes[n].childNodes[0].value == 9){
-        boxes[n].childNodes[0].value = "";
-        n--;
-        while (boxes[n].classList.contains("set")) {
-          if (n==0) {return alert("This sudoku is unsolvable");}
-          n--;
-        }
-        solve(n);
-
-      } else {
-        boxes[n].childNodes[0].value = parseInt(boxes[n].childNodes[0].value) + 1;
-        if (checkValues(n)) {
-          if (n==80) {
-            console.log("DONE");
-          } else {
-            solve(n+1);
-          }
-        } else {
-          solve(n);
-        }
-      }
-
-    },delay)
   }
 }
 
+
 function checkValues(n) {
+  var i,n;
   if (boxes[n].childNodes[0].value==0) {
     return false
   }
@@ -154,6 +113,15 @@ function checkValues(n) {
 }
 
 
+function removeTimeouts() {
+  var id = window.setTimeout(function() {}, 0);
+  console.log(id);
+  while (id--) {
+      window.clearTimeout(id); // will do nothing if no timeout with id is present
+  }
+}
+
+
 function reset() {
   var id = window.setTimeout(function() {}, 0);
   console.log(id);
@@ -163,18 +131,38 @@ function reset() {
   assignValues(currentGrid)
 }
 
+function clearRed() {
+  this.parentElement.classList.remove('incorrect');
+}
+
 function checkAnswer() {
   var success = true;
   var n;
   for (n=0;n<81;n++) {
     boxes[n].classList.remove("incorrect");
     if (!checkValues(n) && !boxes[n].classList.contains("set")) {
-      boxes[n].classList.add("incorrect");
+      if (boxes[n].childNodes[0].value != 0) {boxes[n].classList.add("incorrect")}
       success = false;
     }
   }
-  if (success) {alert("Seems good!")}
-  else {alert("Errors!")}
+  if (success) {
+    alert("Congratulations!");
+    for (n=0;n<81;n++) {boxes[n].classList.add("complete")}
+  }
+  else {alert("Answer is wrong or incomplete.")}
+}
+
+function checkWhileSolving() {
+  var check = true;
+  for (i=0;i<81;i++) {
+    if (boxes[i].childNodes[0].value != 0 && !boxes[i].classList.contains("set")) {
+      if (!checkValues(i)) {
+        check = false;
+        boxes[i].classList.add("incorrect");
+      }
+    }
+  }
+  return check;
 }
 
 

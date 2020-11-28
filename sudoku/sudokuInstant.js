@@ -1,25 +1,29 @@
 function initInstantSolve() {
+  if (!checkWhileSolving()) {return alert("There are inconsistencies!")}
+
   gridValues = [];
   isSet = [];
   for (i=0;i<81;i++) {
-    boxes[i].childNodes[0].readOnly = true;
-    if (boxes[i].childNodes[0].value == '') {
+    if (boxes[i].childNodes[0].value == 0) {
       gridValues.push(0)
+      isSet.push(false)
     } else {
       gridValues.push(parseInt(boxes[i].childNodes[0].value));
       isSet.push(true)
     }
-    if (boxes[i].classList.contains("set")) {
-      isSet.push(true);
+    // if (boxes[i].classList.contains("set")) {
+    //   isSet.push(true);
     // } else {
     //   isSet.push(false);
-    }
+    // }
   }
   var solvable = instantSolve(0);
 
   if (solvable) {
     for (i=0;i<81;i++) {
+      boxes[i].childNodes[0].readOnly = true;
       boxes[i].childNodes[0].value = gridValues[i];
+      boxes[i].classList.add("complete")
     }
   }
 
