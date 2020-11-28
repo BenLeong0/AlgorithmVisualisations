@@ -32,7 +32,7 @@ function bgCheck() {
 
 function checkValues(n) {
   var i,n;
-  if (boxes[n].childNodes[0].value==0) {
+  if (!(boxes[n].childNodes[0].value in [1,2,3,4,5,6,7,8,9])) {
     return false
   }
 
