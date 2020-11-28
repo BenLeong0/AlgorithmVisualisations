@@ -4,61 +4,28 @@ var delay = 0;
 var currentGrid;
 var midSolve = false;
 
-// Set IDs
-// for (i=0;i<boxes.length;i++) {
-//   boxes[i].id = i;
-//   boxes[i].innerHTML = i;
-// }
-
-
-// var grids = [
-//   [
-//     [8,0,0,9,0,0,0,0,4],
-//     [0,3,2,0,0,0,5,7,0],
-//     [0,0,0,0,4,0,8,0,0],
-//     [0,0,0,8,0,5,0,0,1],
-//     [0,0,5,0,9,0,6,0,0],
-//     [1,0,0,3,0,2,0,0,0],
-//     [0,1,9,0,2,0,0,6,0],
-//     [0,2,0,0,0,0,0,1,0],
-//     [7,0,0,0,0,9,0,0,8]
-//   ],
-//   [
-//     [0,0,0,8,0,4,5,0,0],
-//     [0,0,9,6,0,3,0,7,0],
-//     [0,3,7,0,2,0,0,0,0],
-//     [9,1,0,0,0,0,0,2,6],
-//     [0,0,2,0,0,0,1,0,0],
-//     [6,7,0,0,0,0,0,4,8],
-//     [5,0,0,0,8,0,4,1,0],
-//     [0,9,0,1,0,2,8,0,0],
-//     [0,0,0,5,0,9,0,0,0]
-//   ]
-// ]
-
-function assignValues(grid) {
-  for (i=0;i<81;i++) {
-    boxes[i].classList.remove("incorrect")
-    boxes[i].classList.remove("complete")
-    var value = grid[Math.floor(i/9)][i%9];
-    if (value == 0) {
-      boxes[i].childNodes[0].value = '';
-      boxes[i].childNodes[0].readOnly = false;
-      boxes[i].classList.remove("set")
-    } else {
-      boxes[i].childNodes[0].value = value;
-      boxes[i].childNodes[0].readOnly = true;
-      boxes[i].classList.add("set")
-    }
-  }
-  currentGrid = grid;
-}
 
 function clearReadOnlys() {
   for (i=0;i<81;i++) {
     if (!boxes[i].classList.contains("set")) {
       boxes[i].childNodes[0].readOnly = false;
     }
+  }
+}
+
+
+function clearRed() {
+  this.parentElement.classList.remove('incorrect');
+}
+
+
+function bgCheck() {
+  var checkBox = document.getElementById("bgCheck");
+  var container = document.getElementById("grid-container");
+  if (checkBox.checked == true){
+    container.style.backgroundColor = "rgba(0,0,0,1)";
+  } else {
+    container.style.backgroundColor = "rgba(0,0,0,0)";
   }
 }
 
@@ -101,29 +68,6 @@ function checkValues(n) {
 }
 
 
-function removeTimeouts() {
-  var id = window.setTimeout(function() {}, 0);
-  console.log(id);
-  while (id--) {
-      window.clearTimeout(id); // will do nothing if no timeout with id is present
-  }
-}
-
-
-function reset() {
-  var id = window.setTimeout(function() {}, 0);
-  midSolve = false;
-  console.log(id);
-  while (id--) {
-      window.clearTimeout(id); // will do nothing if no timeout with id is present
-  }
-  assignValues(currentGrid)
-}
-
-function clearRed() {
-  this.parentElement.classList.remove('incorrect');
-}
-
 function checkAnswer() {
   var success = true;
   var n;
@@ -141,6 +85,7 @@ function checkAnswer() {
   else {alert("Answer is wrong or incomplete.")}
 }
 
+
 function checkWhileSolving() {
   var check = true;
   for (i=0;i<81;i++) {
@@ -152,6 +97,26 @@ function checkWhileSolving() {
     }
   }
   return check;
+}
+
+
+function removeTimeouts() {
+  var id = window.setTimeout(function() {}, 0);
+  console.log(id);
+  while (id--) {
+      window.clearTimeout(id); // will do nothing if no timeout with id is present
+  }
+}
+
+
+function reset() {
+  var id = window.setTimeout(function() {}, 0);
+  midSolve = false;
+  console.log(id);
+  while (id--) {
+      window.clearTimeout(id); // will do nothing if no timeout with id is present
+  }
+  assignValues(currentGrid)
 }
 
 
@@ -190,16 +155,23 @@ function randomGrid() {
 }
 
 
-function bgCheck() {
-  var checkBox = document.getElementById("bgCheck");
-  var container = document.getElementById("grid-container");
-  if (checkBox.checked == true){
-    container.style.backgroundColor = "rgba(0,0,0,1)";
-  } else {
-    container.style.backgroundColor = "rgba(0,0,0,0)";
+function assignValues(grid) {
+  for (i=0;i<81;i++) {
+    boxes[i].classList.remove("incorrect")
+    boxes[i].classList.remove("complete")
+    var value = grid[Math.floor(i/9)][i%9];
+    if (value == 0) {
+      boxes[i].childNodes[0].value = '';
+      boxes[i].childNodes[0].readOnly = false;
+      boxes[i].classList.remove("set")
+    } else {
+      boxes[i].childNodes[0].value = value;
+      boxes[i].childNodes[0].readOnly = true;
+      boxes[i].classList.add("set")
+    }
   }
+  currentGrid = grid;
 }
 
 
-// assignValues(exampleUnformatted)
 randomGrid()
