@@ -190,5 +190,16 @@ function randomGrid() {
 }
 
 
+function bgCheck() {
+  var checkBox = document.getElementById("bgCheck");
+  var container = document.getElementById("grid-container");
+  if (checkBox.checked == true){
+    container.style.backgroundColor = "rgba(0,0,0,1)";
+  } else {
+    container.style.backgroundColor = "rgba(0,0,0,0)";
+  }
+}
+
+
 // assignValues(exampleUnformatted)
 randomGrid()
