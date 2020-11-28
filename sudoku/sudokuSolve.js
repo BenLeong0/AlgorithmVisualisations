@@ -15,6 +15,9 @@ function initSolve() {
 function solve(n) {
   if (boxes[n].classList.contains("set") || boxes[n].classList.contains("userInput")) {
     if (n==80) {
+      for (i=0;i<81;i++) {
+        boxes[i].classList.add("complete")
+      }
       console.log("DONE");
     } else {
       solve(n+1);
