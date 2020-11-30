@@ -64,30 +64,15 @@ function update(particleList) {
     p.speed[0] += forces[i][0];
     p.speed[1] += forces[i][1];
 
-    var alpha;
-    if (p.speed[0] == 0) {
-      if (p.speed[1] >= 0) {alpha = 0;}
-      else {alpha = Math.PI;}
-    }
-    else {alpha = Math.atan(p.speed[1]/p.speed[0]);}
-    if (p.speed[0]<0) {alpha += Math.PI}
-
-    var absSpeed = p.absSpeed;
     for (j=0;j<particleList.length;j++) {
       if (particleList[j] != p) {
-        var distances = p.getDist(particleList[j]);
-        if (distances[0] < p.mass + particleList[j].mass) {
-          var theta;
-          if (particleList[j].x == 0) {
-            if (particleList[j].y >= 0) {theta = 0;}
-            else {theta = Math.PI;}
-          }
-          else {theta = Math.atan(distances[2] / distances[1]);}
-          if (distances[1] < 0) theta += Math.PI
-
-          var component = absSpeed * Math.cos(theta-alpha);
-          p.speed[0] -= 2 * component * Math.cos(theta)
-          p.speed[1] -= 2 * component * Math.sin(theta)
+        var dist = p.getDist(particleList[j]);
+        if (dist[0] < p.mass + particleList[j].mass) {
+          var n = [dist[1]/dist[0], dist[2]/dist[0]];
+          var r = [0,0];
+          var dp = p.speed[0]*n[0] + p.speed[1]*n[1];
+          p.speed[0] -= 2 * dp * n[0];
+          p.speed[1] -= 2 * dp * n[1];
         }
       }
     }
