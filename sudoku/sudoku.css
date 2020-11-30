@@ -1,12 +1,13 @@
 input {
+    width: inherit;
+    height: inherit;
+    padding: 0;
     border: 0;
     background-color: rgba(0,0,0,0);
-    width: 58px;
-    height: 58px;
     color: white;
-    text-align: center;
-    padding: 0;
     font: inherit;
+    font-size: 20px;
+    text-align: center;
 }
 
 #bgCheck {
@@ -23,38 +24,21 @@ input {
   margin-block-start: 0.5em;
 }
 
-#randomPuzzle {
-  /* width: 0;
-  height: 0; */
-  border; 0;
-}
-
-#grid-container {
+#container {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto;
-  width: 546px;
-  height: 546px;
+  width: 510px;
+  height: 510px;
   margin-left: auto;
   margin-right: auto;
   border: 5px solid rgba(255, 255, 255, 0.8);
 }
 
-.grid-box {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  width: 180px;
-  height: 180px;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-}
-
 .grid-item {
   background-color: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.8);
-  padding: 0;
-  font-size: 20px;
-  text-align: center;
-  width: 58px;
-  height: 58px;
+  width: 54px;
+  height: 54px;
 }
 
 .top-item {
@@ -71,11 +55,6 @@ input {
 
 .set, .complete {
   background-color: rgba(255, 255, 255, 0);
-}
-
-
-#bg-container {
-   position: relative;
 }
 
 #background {

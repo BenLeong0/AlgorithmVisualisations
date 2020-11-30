@@ -8,7 +8,7 @@
     <link rel="icon" href="favicon.png">
   </head>
   <body>
-    <div id="bg-container">
+    <div id="bg-container" style="position: relative;">
       <div id="background">数独</div>
 
       <p><a id="home" href="../index.html">
@@ -25,7 +25,7 @@
         <input type="checkbox" id="bgCheck" onclick="bgCheck()">
       </p>
 
-      <div id="grid-container">
+      <div id="container">
         <div class="grid-item"><input type="text" size="1" readOnly=true value onclick="this.parentElement.classList.remove('incorrect')"></div>
         <div class="grid-item"><input type="text" size="1" value onclick="this.parentElement.classList.remove('incorrect')"></div>
         <div class="grid-item"><input type="text" size="1" value onclick="this.parentElement.classList.remove('incorrect')"></div>
@@ -117,7 +117,6 @@
         <p style="text-align: center; font-size: 12px; margin: 0">Marks any <u>inconsistencies</u> - unmarked squares could still be wrong!</p>
       </p>
 
-      <!-- <iframe id="randomPuzzle" src=""></iframe> -->
       <script src="sudokuGrids.js"></script>
       <script src="sudoku.js"></script>
       <script src="sudokuSolve.js"></script>

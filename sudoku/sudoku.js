@@ -21,7 +21,7 @@ function clearRed() {
 
 function bgCheck() {
   var checkBox = document.getElementById("bgCheck");
-  var container = document.getElementById("grid-container");
+  var container = document.getElementById("container");
   if (checkBox.checked == true){
     container.style.backgroundColor = "rgba(0,0,0,1)";
   } else {
