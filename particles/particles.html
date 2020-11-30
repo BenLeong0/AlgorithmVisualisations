@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Particle Simulator</title>
+    <link rel="stylesheet" href="particles.css">
+    <link rel="icon" href="favicon.png">
+  </head>
+  <body>
+    <p><a id="home" href="../index.html">
+      RETURN TO HOME
+    </a></p>
+
+    <p id='title'>
+      Particle simulator
+    </p>
+
+    <div id="slider">
+      <input type="range" min="2" max="8" value="5" class="slider" id="barRange">
+      <div style="text-align: center">Number of particles: <span id="barOutput"></span></div>
+    </div>
+
+    <svg id="container">
+    </svg>
+
+    <p style="margin-bottom: 8px" id="initialiser">
+      <span onclick="initParticles(5);">Initialise simulation</span> |
+      <span onclick="reset();">Cancel</span>
+    </p>
+
+    <script src="particles.js"></script>
+  </body>
+</html>

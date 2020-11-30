@@ -1,0 +1,57 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+label {
+  text-align: center;
+  font-size: 16px;
+}
+
+#slider{
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#barRange {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#title {
+  text-align: center;
+  font-size: 50px;
+  margin-block-end: 0.5em;
+  margin-block-start: 0.5em;
+}
+
+#initialiser {
+  text-align: center;
+  font-size: 30px;
+  margin-block-end: 0.5em;
+  margin-block-start: 0.5em;
+}
+
+#home {
+  display: block;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+}
+
+#container {
+  display: block;
+  width: 500px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+}
