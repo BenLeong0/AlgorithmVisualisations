@@ -152,15 +152,6 @@ function updatePositions(particleList) {
 }
 
 
-function reset() {
-  var id = window.setTimeout(function() {}, 0);
-  console.log(id);
-  while (id--) {
-      window.clearTimeout(id); // will do nothing if no timeout with id is present
-  }
-}
-
-
 function initParticles() {
   reset();
   particles = [];
@@ -194,6 +185,15 @@ function initParticles() {
 
   genSVG(particles)
   updatePositions(particles)
+}
+
+
+function reset() {
+  var id = window.setTimeout(function() {}, 0);
+  console.log(id);
+  while (id--) {
+      window.clearTimeout(id); // will do nothing if no timeout with id is present
+  }
 }
 
 
