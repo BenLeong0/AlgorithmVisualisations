@@ -29,7 +29,7 @@ function runRandomsort() {
       if (newOrder[i] == sorted[i]) {
         bars[i].classList.add('green')
       } else {
-        bars[i].classList.add('red')
+        // bars[i].classList.add('red')
         allCorrect = false
       }
     }
