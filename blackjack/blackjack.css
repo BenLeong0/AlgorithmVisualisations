@@ -1,0 +1,61 @@
+#dealer, #player {
+  max-width: 1100px;
+  height: 144px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.card {
+  display: inline-block;
+  width: 96px;
+  height: 144px;
+  margin-left: 2px;
+  margin-right: 2px;
+  image-rendering: pixelated;
+}
+
+#C2 {
+  background-image: url('PNG/C2.png');
+  background-size: 100% 100%;
+  image-rendering: crisp-edges;
+}
+
+.topNumber {
+  color: black;
+  position: relative;
+  display: block;
+  text-align: center;
+  left: 3px;
+  font-family: consolas;
+  top: 2px;
+  font-size: 18px;
+  vertical-align: top;
+  width: 11px;
+}
+
+#actions {
+  text-align: center;
+  font-size: 30px;
+  margin-block-end: 0.5em;
+  margin-block-start: 0.5em;
+  font-family: consolas
+}
+
+#options {
+  margin-block-end: 0.5em;
+}
+
+#instructions {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1100px;
+  text-align: center;
+  font-size: 30px;
+  font-family: consolas;
+  min-height: 36px;
+}
