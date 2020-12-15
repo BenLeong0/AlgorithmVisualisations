@@ -109,6 +109,7 @@ function genRandomBars(n) {
 }
 
 function reset() {
+  document.getElementById('container').style.display = 'block';
   var id = window.setTimeout(function() {}, 0);
   console.log(id);
   while (id--) {
