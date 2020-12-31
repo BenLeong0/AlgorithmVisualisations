@@ -228,3 +228,10 @@ slider.oninput = function() {
   output.innerHTML = this.value;
   n = Number(this.value)
 }
+
+
+document.onkeypress = function (e) {
+  if (e.key == ' ') {
+    initPlanets(n)
+  }
+}

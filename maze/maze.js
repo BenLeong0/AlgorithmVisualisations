@@ -151,6 +151,12 @@ heightRange.oninput = function() {
   height = Number(this.value)
 }
 
+document.onkeypress = function (e) {
+  if (e.key == ' ') {
+    generateMaze()
+  }
+}
+
 
 initialiseGrid()
 enableSliders()
