@@ -13,8 +13,9 @@ function initialiseGrid() {
   for (var i=0;i<height;i++) {
     // above boxes
     for (var j=0;j<width;j++) {
-      console.log(i,j);
-      $("#container").append(corner + uDiv(i,j) + corner)
+      $("#container").append(corner)
+      $("#container").append(uDiv(i,j))
+      $("#container").append(corner)
     }
     // boxes and sides
     for (var j=0;j<width;j++) {
