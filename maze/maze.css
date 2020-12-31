@@ -35,6 +35,13 @@ label {
   background-color: grey;
 }
 
+#widthSlider, #heightSlider{
+  display: inline-block;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .corner {
   display: inline-block;
   width: 10px;

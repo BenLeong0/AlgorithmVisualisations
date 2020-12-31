@@ -1,15 +1,17 @@
 // boxes: 30x30
 // 10 margin on each side => connectors are 20x30 / 30x20
 const delay = 10;
-const height = 10;
-const width = 10;
+// var height = 10;
+// var width = 10;
 
 const corner = '<div class="corner"></div>'
 var nodeStack = []
 
 function initialiseGrid() {
   reset()
+  disableSliders()
   $('#container').empty()
+  $('#container').css({"width": String(width*50)+'px', "height": String(height*50)+'px'})
   for (var i=0;i<height;i++) {
     // above boxes
     for (var j=0;j<width;j++) {
@@ -90,11 +92,13 @@ function generateMaze() {
 
   function f() {
     if (nodeStack.length == 0) {
+      enableSliders()
       return chooseEndPoint(endNodes)
     }
     currNode = nodeStack.pop()
     while (isVisited(currNode[0],currNode[1])) {
       if (nodeStack.length == 0) {
+        enableSliders()
         return chooseEndPoint(endNodes)
       }
       currNode = nodeStack.pop()
@@ -123,6 +127,30 @@ function reset() {
   while (id--) {
       window.clearTimeout(id); // will do nothing if no timeout with id is present
   }
+  enableSliders()
 }
 
+
+var widthRange = document.getElementById("widthRange");
+var widthOutput = document.getElementById("widthOutput");
+widthOutput.innerHTML = widthRange.value;
+width = Number(widthRange.value)
+
+widthRange.oninput = function() {
+  widthOutput.innerHTML = this.value;
+  width = Number(this.value)
+}
+
+var heightRange = document.getElementById("heightRange");
+var heightOutput = document.getElementById("heightOutput");
+heightOutput.innerHTML = heightRange.value;
+height = Number(heightRange.value)
+
+heightRange.oninput = function() {
+  heightOutput.innerHTML = this.value;
+  height = Number(this.value)
+}
+
+
 initialiseGrid()
+enableSliders()

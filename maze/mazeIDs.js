@@ -59,3 +59,13 @@ function updateColours(nodeDetails) {
       $('#' + l(i,j+1)).addClass('visited')
   }
 }
+
+function disableSliders() {
+  $('#widthSlider').css('pointer-events','none')
+  $('#heightSlider').css('pointer-events','none')
+}
+
+function enableSliders() {
+  $('#widthSlider').css('pointer-events','all')
+  $('#heightSlider').css('pointer-events','all')
+}
