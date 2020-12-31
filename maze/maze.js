@@ -1,9 +1,11 @@
-let delay = 10;
-let height = 10;
-let width = 10;
+// boxes: 30x30
+// 10 margin on each side => connectors are 20x30 / 30x20
+const delay = 10;
+const height = 10;
+const width = 10;
 
-let corner = '<div class="corner"></div>'
-let nodeStack = []
+const corner = '<div class="corner"></div>'
+var nodeStack = []
 
 function initialiseGrid() {
   reset()
@@ -11,9 +13,8 @@ function initialiseGrid() {
   for (var i=0;i<height;i++) {
     // above boxes
     for (var j=0;j<width;j++) {
-      $("#container").append(corner)
-      $("#container").append(uDiv(i,j))
-      $("#container").append(corner)
+      console.log(i,j);
+      $("#container").append(corner + uDiv(i,j) + corner)
     }
     // boxes and sides
     for (var j=0;j<width;j++) {
