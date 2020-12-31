@@ -4,10 +4,11 @@ const delay = 10;
 const height = 10;
 const width = 10;
 
-const corner = '<div class="corner"></div>';
+const corner = '<div class="corner"></div>'
 var nodeStack = []
 
 function initialiseGrid() {
+  const corner = '<div class="corner"></div>'
   reset()
   $('#container').empty()
   for (var i=0;i<height;i++) {
