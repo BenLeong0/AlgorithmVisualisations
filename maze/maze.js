@@ -1,14 +1,11 @@
-// boxes: 30x30
-// 10 margin on each side => connectors are 20x30 / 30x20
-const delay = 10;
-const height = 10;
-const width = 10;
+let delay = 10;
+let height = 10;
+let width = 10;
 
-const corner = '<div class="corner"></div>'
-var nodeStack = []
+let corner = '<div class="corner"></div>'
+let nodeStack = []
 
 function initialiseGrid() {
-  const corner = '<div class="corner"></div>'
   reset()
   $('#container').empty()
   for (var i=0;i<height;i++) {
