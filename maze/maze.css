@@ -25,4 +25,45 @@ label {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   border: 5px solid rgba(255, 255, 255, 0.8);
+  line-height: 0;
+}
+
+.box {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: grey;
+}
+
+.corner {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  /* background-color: aqua; */
+}
+
+.hori {
+  display: inline-block;
+  width: 30px;
+  height: 10px;
+  /* background-color: aquamarine; */
+}
+
+.vert {
+  display: inline-block;
+  width: 10px;
+  height: 30px;
+  /* background-color: aquamarine; */
+}
+
+.visited {
+  background-color: white
+}
+
+.startNode {
+  background-color: lime
+}
+
+.endNode {
+  background-color: red
 }
