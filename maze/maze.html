@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Random Maze Generator</title>
+    <link rel="stylesheet" href="../mystyle.css">
+    <link rel="stylesheet" href="maze.css">
+    <link rel="icon" href="favicon.png">
+  </head>
+  <body>
+    <p><a id="home" href="../index.html">
+      RETURN TO HOME
+    </a></p>
+
+    <p id='options'>
+      Planet simulator
+    </p>
+
+    <div id="slider">
+      <input type="range" min="2" max="8" value="5" class="slider" id="barRange">
+      <div style="text-align: center">Number of planets: <span id="barOutput"></span></div>
+    </div>
+
+    <svg id="container">
+    </svg>
+
+    <p style="margin-bottom: 8px" id="initialiser">
+      <span onclick="initPlanets(5);">Initialise simulation</span> |
+      <span onclick="reset();">Cancel</span>
+    </p>
+
+    <script src="maze.js"></script>
+  </body>
+</html>
