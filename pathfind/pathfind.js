@@ -66,9 +66,7 @@ function generateGrid() {
         wallMode = true
         $(this).toggleClass('wall')
       })
-      box(i,j).ontouchstart(function(){
-        $(this).toggleClass('wall')
-      })
+      box(i,j).attr('ontouchstart', $(this).toggleClass('wall'))
       box(i,j).mouseup(function(){
         wallMode = false
       })
