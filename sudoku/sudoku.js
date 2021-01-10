@@ -3,6 +3,22 @@ var boxes = document.getElementsByClassName('grid-item')
 var delay = 0;
 var currentGrid;
 var midSolve = false;
+var container = document.getElementById("container");
+
+
+// Setup board
+for (i=0;i<9;i++) {
+  for (j=0;j<9;j++) {
+    classes = ''
+    if (i!=0 && i%3==0) {classes += " top-item"}
+    if (j!=0 && j%3==0) {classes += " left-item"}
+    stringA = '<div class="grid-item'
+    stringB = '"><input type="text" size="1" readOnly=true value onclick="this.parentElement.classList.remove(\'incorrect\')"></div>'
+    container.innerHTML += stringA + classes + stringB
+  }
+}
+
+
 
 
 function clearReadOnlys() {
@@ -21,7 +37,6 @@ function clearRed() {
 
 function bgCheck() {
   var checkBox = document.getElementById("bgCheck");
-  var container = document.getElementById("container");
   if (checkBox.checked == true){
     container.style.backgroundColor = "rgba(0,0,0,1)";
   } else {
