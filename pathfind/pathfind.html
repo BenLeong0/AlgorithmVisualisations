@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Shortest path finder</title>
+    <link rel="stylesheet" href="../mystyle.css">
+    <link rel="stylesheet" href="pathfind.css">
+    <link rel="icon" href="favicon.png">
+  </head>
+  <body>
+    <p><a id="home" href="../index.html">
+      RETURN TO HOME
+    </a></p>
+
+    <p id='options'>
+      Shortest path finder
+    </p>
+
+    <div id="widthSlider">
+      <input type="range" min="5" max="40" value="20" class="slider" id="widthRange">
+      <div style="text-align: center">Width: <span id="widthOutput"></span></div>
+    </div>
+    <div id="heightSlider">
+      <input type="range" min="5" max="40" value="20" class="slider" id="heightRange">
+      <div style="text-align: center">Height: <span id="heightOutput"></span></div>
+    </div>
+
+
+    <div id="container"></div>
+
+    <p style="margin-bottom: 8px" id="initialiser">
+      <span onclick="generateGrid();">Generate new maze</span> |
+      <span onclick="initPathFind();">Find shortest path</span> |
+      <span onclick="reset();">Cancel</span>
+      <p style="text-align: center; font-size: 15px; margin: 0">Note: You can draw walls to block the path</p>
+    </p>
+
+    <script src="pathfindsetup.js"></script>
+    <script src="pathfindIDs.js"></script>
+    <script src="pathfind.js"></script>
+  </body>
+</html>
