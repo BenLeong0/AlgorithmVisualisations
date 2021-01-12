@@ -40,12 +40,12 @@ label {
   user-select: none;
 }
 
-.wall {
-  background-color: grey;
-}
-
 .visited {
   background-color: white
+}
+
+.wall {
+  background-color: grey;
 }
 
 .path {
