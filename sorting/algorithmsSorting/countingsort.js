@@ -5,7 +5,7 @@ function runCountingsort(){
   genRandomBars(countingLength);
 
   queuePositions = [];
-  for (i=0;i<countingLength;i++) {
+  for (let i=0;i<countingLength;i++) {
     queuePositions.push(0)
   }
   toggleGreen(countingLength-1)
@@ -20,7 +20,7 @@ function runCountingsort(){
       box.insertBefore(bars[countingLength-1], bars[pos]);
       toggleGreen(countingLength-1)
 
-      for (j=val;j<countingLength;j++) {
+      for (let j=val;j<countingLength;j++) {
         queuePositions[j] += 1;
       }
 

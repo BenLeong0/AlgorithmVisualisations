@@ -15,7 +15,7 @@ function runRadixsort() {
       var digit = getValue(i).toString().padStart(d, '0')[d-n]
       var pos = queuePositions[digit]
       box.insertBefore(bars[i], bars[pos]);
-      for (j=digit;j<10;j++) {
+      for (let j=digit;j<10;j++) {
         queuePositions[j]++
       }
 

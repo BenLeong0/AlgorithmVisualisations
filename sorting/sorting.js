@@ -34,7 +34,7 @@ function swapBars(m,n) {
 function initBars(array) {
   document.getElementById("container").innerHTML = ''
   var i = 0
-  for (i=0; i<array.length; i++) {
+  for (let i=0; i<array.length; i++) {
     addBar(array[i])
   }
   resizeBars()
@@ -64,7 +64,7 @@ function resizeBars() {
 
   /* Assign bar widths, and retrieve values */
   var i = 0
-  for (i=0; i<bars.length; i++) {
+  for (let i=0; i<bars.length; i++) {
     // Not percentages so that it's consistent through bars
     bars[i].style.width = Math.floor(900/bars.length) + 'px'
     bars[i].style.marginLeft = Math.floor(50/bars.length) + 'px'
@@ -80,7 +80,7 @@ function resizeBars() {
   /* Assign bar heights */
   maxValue = Math.max(...values)
   var i = 0
-  for (i=0; i<bars.length; i++) {
+  for (let i=0; i<bars.length; i++) {
     bars[i].style.paddingTop = 50 * getValue(i) / maxValue + '%'
   }
 
@@ -94,7 +94,7 @@ function resizeBars() {
 
 function getValues(){
   values = []
-  for (i=0; i<barNumber; i++) {
+  for (let i=0; i<barNumber; i++) {
     values.push(getValue(i))
   }
   return values
@@ -102,7 +102,7 @@ function getValues(){
 
 function genRandomBars(n) {
   values = []
-  for (i=0; i<n; i++) {
+  for (let i=0; i<n; i++) {
     values.push(Math.ceil(Math.random() * n))
   }
   initBars(values)

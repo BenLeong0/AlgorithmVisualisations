@@ -59,8 +59,8 @@ function generateGrid() {
   $('#container').empty()
   $('#container').css({"width": String(width*25)+'px', "height": String(height*25)+'px'})
   $('#container').mouseleave(function(){wallMode=false})
-  for (var i=0;i<height;i++) {
-    for (var j=0;j<width;j++) {
+  for (let i=0;i<height;i++) {
+    for (let j=0;j<width;j++) {
       $("#container").append(boxDiv(i,j))
       box(i,j).mousedown(function(){
         wallMode = true
@@ -128,11 +128,11 @@ function initPathFind() {
 function BFS(nodes) {
   var nbd = []
   if (nodes.length == 0) {return alert("No routes found.");}
-  for (i=0;i<nodes.length;i++) {
+  for (let i=0;i<nodes.length;i++) {
     var currNode = nodes[i]
     var [currNbd, containsEndNode] = getNeighbours(currNode[0], currNode[1])
     if (containsEndNode) {return markPath(currNode[0],currNode[1])}
-    for (j=0;j<currNbd.length;j++) {
+    for (let j=0;j<currNbd.length;j++) {
       box(currNbd[j][0],currNbd[j][1]).addClass('visited')
       box(currNbd[j][0],currNbd[j][1]).addClass(currNbd[j][2])
       nbd.push(currNbd[j]);

@@ -134,7 +134,7 @@ function runHeapsort() {
 
 function checkHeap() {
   var bars = document.getElementsByClassName("bar");
-  for (i=0;i<bars.length;i++) {
+  for (let i=0;i<bars.length;i++) {
     if (2*i+2 < bars.length) {
       if (getValue(i) < getValue(2*i+1) || getValue(i) < getValue(2*i+2)) {
         console.log('yuk');

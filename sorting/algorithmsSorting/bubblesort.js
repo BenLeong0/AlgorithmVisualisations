@@ -3,8 +3,8 @@ var bubbleQueue = []
 
 function genBubbleQueue(n) {
   bubbleQueue = []
-  for (i=0; i<n-1; i++) {
-    for (j=0; j<n-i-1; j++) bubbleQueue.push(j)
+  for (let i=0; i<n-1; i++) {
+    for (let j=0; j<n-i-1; j++) bubbleQueue.push(j)
     bubbleQueue.push([n-i-1])
   }
   bubbleQueue.push([0])

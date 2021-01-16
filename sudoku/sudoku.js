@@ -7,8 +7,8 @@ var container = document.getElementById("container");
 
 
 // Setup board
-for (i=0;i<9;i++) {
-  for (j=0;j<9;j++) {
+for (let i=0;i<9;i++) {
+  for (let j=0;j<9;j++) {
     classes = ''
     if (i!=0 && i%3==0) {classes += " top-item"}
     if (j!=0 && j%3==0) {classes += " left-item"}
@@ -22,7 +22,7 @@ for (i=0;i<9;i++) {
 
 
 function clearReadOnlys() {
-  for (i=0;i<81;i++) {
+  for (let i=0;i<81;i++) {
     if (!boxes[i].classList.contains("set")) {
       boxes[i].childNodes[0].readOnly = false;
     }
@@ -54,7 +54,7 @@ function checkValues(n) {
 
   var idInSquare = n%3 + 9*Math.floor(n%27/9);
   var squareIds = [0,1,2,9,10,11,18,19,20]
-  for (i=0;i<9;i++) {
+  for (let i=0;i<9;i++) {
     if (idInSquare != squareIds[i]) {
       var comparedId = n - idInSquare + squareIds[i]
       if (boxes[comparedId].childNodes[0].value == boxes[n].childNodes[0].value) {
@@ -63,7 +63,7 @@ function checkValues(n) {
     }
   }
 
-  for (i=9*Math.floor(n/9); i<9*(Math.floor(n/9)+1); i++) {
+  for (let i=9*Math.floor(n/9); i<9*(Math.floor(n/9)+1); i++) {
     if (i != n) {
       if (boxes[i].childNodes[0].value == boxes[n].childNodes[0].value) {
         return false
@@ -71,7 +71,7 @@ function checkValues(n) {
     }
   }
 
-  for (i=0;i<9;i++) {
+  for (let i=0;i<9;i++) {
     var comparedId = 9*i + n%9;
     if (comparedId != n) {
       if (boxes[comparedId].childNodes[0].value == boxes[n].childNodes[0].value) {
@@ -87,7 +87,7 @@ function checkValues(n) {
 function checkAnswer() {
   var success = true;
   var n;
-  for (n=0;n<81;n++) {
+  for (let n=0;n<81;n++) {
     boxes[n].classList.remove("incorrect");
     if (!checkValues(n) && !boxes[n].classList.contains("set")) {
       if (boxes[n].childNodes[0].value != 0) {boxes[n].classList.add("incorrect")}
@@ -96,7 +96,7 @@ function checkAnswer() {
   }
   if (success) {
     alert("Congratulations!");
-    for (n=0;n<81;n++) {boxes[n].classList.add("complete")}
+    for (let n=0;n<81;n++) {boxes[n].classList.add("complete")}
   }
   else {alert("Answer is wrong or incomplete.")}
 }
@@ -104,7 +104,7 @@ function checkAnswer() {
 
 function checkWhileSolving() {
   var check = true;
-  for (i=0;i<81;i++) {
+  for (let i=0;i<81;i++) {
     if (boxes[i].childNodes[0].value != 0 && !boxes[i].classList.contains("set")) {
       if (!checkValues(i)) {
         check = false;
@@ -154,9 +154,9 @@ function emptyBoard() {
 function stringToGrid(stringInput) {
   var grid = [];
   var x, y;
-  for (x=0;x<9;x++) {
+  for (let x=0;x<9;x++) {
     var line = [];
-    for (y=0;y<9;y++) {
+    for (let y=0;y<9;y++) {
       line.push(stringInput[9*x+y]);
     }
     grid.push(line);
@@ -172,7 +172,7 @@ function randomGrid() {
 
 
 function assignValues(grid) {
-  for (i=0;i<81;i++) {
+  for (let i=0;i<81;i++) {
     boxes[i].classList.remove("incorrect")
     boxes[i].classList.remove("complete")
     var value = grid[Math.floor(i/9)][i%9];

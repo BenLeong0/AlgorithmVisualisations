@@ -43,7 +43,7 @@ function score(player) {
   hand = document.getElementById(player).getElementsByClassName("card");
   var currentScore = 0;
   var ace = false;
-  for (i=0;i<hand.length;i++) {
+  for (let i=0;i<hand.length;i++) {
     var card = hand[i].getAttribute("id")
     currentScore += value(card);
     if (card[0] == 'A') {

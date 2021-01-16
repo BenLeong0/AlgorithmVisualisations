@@ -28,7 +28,7 @@ class Planet {
   calcAccel(planetList) {
     var accel = [0,0];
     var i;
-    for (i=0;i<planetList.length;i++) {
+    for (let i=0;i<planetList.length;i++) {
       if (planetList[i] != this) {
         var p = planetList[i];
         var distances = this.getDist(p)
@@ -55,18 +55,18 @@ function update(planetList) {
   var forces = [];
 
   // Calculate effect of each other planet
-  for (i=0;i<planetList.length;i++) {
+  for (let i=0;i<planetList.length;i++) {
     forces.push(planetList[i].calcAccel(planetList));
   }
 
   // Alter planet's speed, and solve collisions
-  for (i=0;i<planetList.length;i++) {
+  for (let i=0;i<planetList.length;i++) {
     var p = planetList[i];
     p.speed[0] += forces[i][0];
     p.speed[1] += forces[i][1];
     p.newSpeed = p.speed;
 
-    for (j=0;j<planetList.length;j++) {
+    for (let j=0;j<planetList.length;j++) {
       if (planetList[j] != p) {
         var dist = p.getDist(planetList[j]);
         if (dist[0] < p.mass + planetList[j].mass) {
@@ -111,7 +111,7 @@ function update(planetList) {
     }
   // }
   //
-  // for (i=0;i<planetList.length;i++) {
+  // for (let i=0;i<planetList.length;i++) {
   //   var p = planetList[i];
   //   p.speed = p.newSpeed;
     p.x += p.speed[0];
@@ -153,7 +153,7 @@ function update(planetList) {
 function genSVG(planetList) {
   document.getElementsByTagName("svg")[0].innerHTML = ''
   var n=0;
-  for (n=0;n<planetList.length;n++) {
+  for (let n=0;n<planetList.length;n++) {
     var p = planetList[n]
     var circ = "<circle cx='" + (p.x + 250)
               + "' cy='" + (250 - p.y)
@@ -178,7 +178,7 @@ function initPlanets() {
   reset();
   planets = [];
 
-  for (i=0;i<n;i++) {
+  for (let i=0;i<n;i++) {
     var check = false;
 
     // Check positions is valid (not overlapping wall or other planets)

@@ -12,21 +12,21 @@ function initialiseGrid() {
   disableSliders()
   $('#container').empty()
   $('#container').css({"width": String(width*50)+'px', "height": String(height*50)+'px'})
-  for (var i=0;i<height;i++) {
+  for (let i=0;i<height;i++) {
     // above boxes
-    for (var j=0;j<width;j++) {
+    for (let j=0;j<width;j++) {
       $("#container").append(corner)
       $("#container").append(uDiv(i,j))
       $("#container").append(corner)
     }
     // boxes and sides
-    for (var j=0;j<width;j++) {
+    for (let j=0;j<width;j++) {
       $("#container").append(lDiv(i,j))
       $("#container").append(boxDiv(i,j))
       $("#container").append(rDiv(i,j))
     }
     // below boxes
-    for (var j=0;j<width;j++) {
+    for (let j=0;j<width;j++) {
       $("#container").append(corner)
       $("#container").append(dDiv(i,j))
       $("#container").append(corner)
@@ -38,7 +38,7 @@ function initialiseGrid() {
 
 
 function shuffle(array) {
-    for (var i = array.length - 1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
         array[i] = array[j];

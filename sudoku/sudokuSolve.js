@@ -3,7 +3,7 @@ function initSolve() {
 
   midSolve = true;
 
-  for (i=0;i<81;i++) {
+  for (let i=0;i<81;i++) {
     boxes[i].childNodes[0].readOnly = true;
     boxes[i].classList.remove("userInput");
     if (boxes[i].childNodes[0].value != 0 && !boxes[i].classList.contains("set"))
@@ -17,7 +17,7 @@ function initSolve() {
 function solve(n) {
   if (boxes[n].classList.contains("set") || boxes[n].classList.contains("userInput")) {
     if (n==80) {
-      for (i=0;i<81;i++) {
+      for (let i=0;i<81;i++) {
         boxes[i].classList.add("complete")
       }
       midSolve = false;
@@ -50,7 +50,7 @@ function solve(n) {
         boxes[n].childNodes[0].value = parseInt(boxes[n].childNodes[0].value) + 1;
         if (checkValues(n)) {
           if (n==80) {
-            for (i=0;i<81;i++) {
+            for (let i=0;i<81;i++) {
               boxes[i].classList.add("complete")
             }
             midSolve = false;
