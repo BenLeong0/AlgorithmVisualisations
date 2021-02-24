@@ -16,6 +16,10 @@ label {
   margin-block-start: 0.5em;
 }
 
+#initialiser span {
+  cursor: pointer;
+}
+
 #container {
   display: block;
   width: 500px;

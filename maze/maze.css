@@ -16,6 +16,10 @@ label {
   margin-block-start: 0.5em;
 }
 
+#initialiser span {
+  cursor: pointer;
+}
+
 #container {
   display: block;
   width: 500px;
@@ -35,7 +39,8 @@ label {
   background-color: grey;
 }
 
-#widthSlider, #heightSlider{
+#widthSlider,
+#heightSlider {
   display: inline-block;
   width: 150px;
   margin-left: auto;
@@ -64,13 +69,13 @@ label {
 }
 
 .visited {
-  background-color: white
+  background-color: white;
 }
 
 .startNode {
-  background-color: lime
+  background-color: lime;
 }
 
 .endNode {
-  background-color: red
+  background-color: red;
 }

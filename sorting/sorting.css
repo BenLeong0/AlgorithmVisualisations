@@ -11,13 +11,13 @@
   display: none;
 }
 
-.bar{
+.bar {
   display: inline-block;
   background-color: white;
   height: 0;
 }
 
-.label{
+.label {
   position: relative;
   color: #505050;
   text-align: center;

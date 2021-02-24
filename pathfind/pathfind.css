@@ -16,6 +16,10 @@ label {
   margin-block-start: 0.5em;
 }
 
+#initialiser span {
+  cursor: pointer;
+}
+
 #container {
   display: block;
   margin-left: auto;
@@ -26,7 +30,8 @@ label {
   line-height: 0;
 }
 
-#widthSlider, #heightSlider{
+#widthSlider,
+#heightSlider {
   display: inline-block;
   width: 150px;
   margin-left: auto;
@@ -41,7 +46,7 @@ label {
 }
 
 .visited {
-  background-color: white
+  background-color: white;
 }
 
 .wall {
@@ -49,13 +54,13 @@ label {
 }
 
 .path {
-  background-color: cyan
+  background-color: cyan;
 }
 
 .startNode {
-  background-color: lime
+  background-color: lime;
 }
 
 .endNode {
-  background-color: red
+  background-color: red;
 }
