@@ -19,11 +19,15 @@ This page includes visualisations for a number of common sorting algorithms. The
   - Note: Do not run random sort with > 10 elements, as it is very computationally intensive and essentially neverending.
   - If such a sort is initialised, either reload the page or initalise a different sorting algorithm to override it.
 
-![quicksort example](https://i.imgur.com/I8SkNkD.mp4 "Quicksort")
+https://user-images.githubusercontent.com/71988019/110107647-175c5380-7da3-11eb-90a0-0ffd0d669546.mp4
 
 The objects being sorted are represented by bars of varying lengths, the number of which can be altered by adjusting the slider at the top.
 Initilise sortings by clicking on the name of the sort you want to view, and a new array of bars will be generated.
 
-In the future I plan to add information about time and space complexity for each algorithm.
+Future plans:
+
+- [ ] Time and space complexity information.
+- [ ] Custom number of bars.
+  - For example, the visualisation for radix sort makes a lot more sense with three-digit elements.
 
 ## [Random Maze Generator](https://benleong0.github.io/AlgorithmVisualisations/maze/maze.html)
