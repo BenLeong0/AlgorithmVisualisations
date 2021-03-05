@@ -19,7 +19,7 @@ This page includes visualisations for a number of common sorting algorithms. The
   - Note: Do not run random sort with > 10 elements, as it is very computationally intensive and essentially neverending.
   - If such a sort is initialised, either reload the page or initalise a different sorting algorithm to override it.
 
-![quicksort example](https://user-images.githubusercontent.com/71988019/110108322-f0525180-7da3-11eb-86b3-fadf58f7ce5c.gif)
+![quicksort example](https://user-images.githubusercontent.com/71988019/110109590-92bf0480-7da5-11eb-995f-0fdde46f151a.gif)
 
 The objects being sorted are represented by bars of varying lengths, the number of which can be altered by adjusting the slider at the top.
 Initilise sortings by clicking on the name of the sort you want to view, and a new array of bars will be generated.
