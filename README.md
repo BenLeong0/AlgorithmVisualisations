@@ -55,7 +55,7 @@ For this page, a start point and end point are generated within a box. The user 
 This page uses a recursive backtracking algorithm to solve Sudoku puzzles.
 
 - Users can input their own puzzle, or generate one from a saved set of 10,000.
-- There are options to either solve the puzzle instantly, or to view the algorithms as it solves.
+- There are options to either solve the puzzle instantly, or to view the algorithms as it solves (both using the backtracking algorithm).
 - There is a checking feature, where a user can identify contradictions within their solution.
   - Note: this does not mark all incorrect squares, but only when there is a direct clash between two inputs.
 
@@ -66,8 +66,5 @@ This page uses a recursive backtracking algorithm to solve Sudoku puzzles.
 This page simulates 2-dimensional bodies ("planets") in space, and how gravity would act on them.
 
 - It generates objects of different sizes, the number of which can be adjusted using the slider at the top.
-- The gravitational effect is quite well simulated (under the contraints of refresh rate etc), but unfortunately collisions are currently not very realistic.
-  - Transfer of momentum isn't simulated properly, which is something I plan to work on in the future.
-  - However, I believe the resulting velocity directions after a collision are realistic.
 
 ![planet-sim](https://user-images.githubusercontent.com/71988019/110112443-abc9b480-7da9-11eb-9297-680e3198aaa4.gif)
